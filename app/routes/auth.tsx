@@ -2,19 +2,19 @@ import { usePuterStore } from '~/lib/puter'
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 
-export const meta = () => ([
+export const meta = () => [
   { title: 'Resumind | Auth' },
   { name: 'description', content: 'Log into your account' },
-])
+]
 
 const Auth = () => {
-  const { isLoading, auth } = usePuterStore();
-  const location = useLocation();
-  const next = location.search.split('next=')[1];
-  const navigate = useNavigate();
+  const { isLoading, auth } = usePuterStore()
+  const location = useLocation()
+  const next = location.search.split('next=')[1]
+  const navigate = useNavigate()
 
   useEffect(() => {
-    if(auth.isAuthenticated) navigate(next);
+    if (auth.isAuthenticated) navigate(next)
   }, [auth.isAuthenticated, next])
 
   return (
